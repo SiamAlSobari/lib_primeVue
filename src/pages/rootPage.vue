@@ -1,4 +1,9 @@
+<script setup lang="ts">
+import { Button } from 'primevue';
+
+</script>
+
 <template>
-    <h1 class="text-3xl text-shadow-blue-500">Root Page</h1>
-    <button class="btn btn-warning btn-soft">Warning</button>
+  <p>asa</p>
+  <Button label="Danger" severity="danger" />
 </template>
