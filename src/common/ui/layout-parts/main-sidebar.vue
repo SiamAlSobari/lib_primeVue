@@ -15,7 +15,6 @@ const items = [
   <aside class="w-64  shadow min-h-screen p-4">
     <div class="flex items-center justify-between">
       <p>Menu</p>
-      <Menu />
     </div>
     <nav class="mt-6">
       <ul class="space-y-4">
