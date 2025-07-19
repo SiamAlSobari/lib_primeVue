@@ -4,7 +4,7 @@ import { useToast } from "primevue";
 
 export function useRegister() {
     const toast = useToast();
-    return useMutation({
+    const {mutate: register} = useMutation({
         mutationFn: authService.register,
         mutationKey: ["register"],
         onError: () => {
@@ -16,4 +16,5 @@ export function useRegister() {
             });
         },
     });
+    return {register};
 }

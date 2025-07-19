@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import Password from "primevue/password";
 import Card from "primevue/card";
-import { Divider, InputText, Message } from "primevue";
+import { Divider, InputText, Message, useToast} from "primevue";
 import { Button } from "primevue";
 import { zodResolver } from "@primevue/forms/resolvers/zod";
 import { z } from "zod";
 import { Form } from "@primevue/forms";
+import { useRegister } from "../hooks/use-register";
 
+
+const {register} = useRegister();
+const toast = useToast();
 const resolver = zodResolver(
   z.object({
     email: z.email({ error: "Email harus valid" }),
@@ -17,9 +21,15 @@ const resolver = zodResolver(
   })
 );
 
-function registerUser({ valid }: { valid: boolean }) {
+function registerUser({ valid, values }: { valid: boolean; values: any }) {
   if (valid) {
-    alert("berhasil");
+    //register(values)
+    toast.add({
+      severity: "success",
+      summary: "Success",
+      detail: "Register success",
+      life: 3000,
+    });
   }
 }
 </script>
