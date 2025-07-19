@@ -7,14 +7,14 @@ import MainSidebar from "../common/ui/layout-parts/main-sidebar.vue";
 <template>
   <div class="h-screen flex flex-col">
     <!-- Navbar tetap di atas -->
-    <header class="sticky top-0 z-50 bg-[#121212]">
+    <header class="sticky top-0 z-50 ">
       <MainNav />
     </header>
 
     <!-- Isi: Sidebar & Konten utama -->
     <div class="flex flex-1 overflow-hidden">
       <!-- Sidebar tetap -->
-      <aside class="w-64 bg-[] border-r h-full">
+      <aside class=" h-full">
         <MainSidebar />
       </aside>
 

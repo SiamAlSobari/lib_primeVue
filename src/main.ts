@@ -10,7 +10,10 @@ import 'primeicons/primeicons.css'
 const app  = createApp(App)
 app.use(PrimeVue,{
    theme:{
-    preset: Aura
+    preset: Aura,
+    options: {
+      darkModeSelector: '.dark-app', // Kelas untuk dark mode
+    },
    }
 })
 app.use(router)
