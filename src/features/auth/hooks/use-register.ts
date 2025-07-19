@@ -5,5 +5,8 @@ export function useRegister() {
     return useMutation({
         mutationFn: authService.register,
         mutationKey: ["register"],
+        onError: () => {
+            console.log("error");
+        },
     });
 }
