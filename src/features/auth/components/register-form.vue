@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Password from "primevue/password";
 import Card from "primevue/card";
-import { Divider, InputText, Message } from "primevue";
+import { Divider, IconField, InputIcon, InputText, Message } from "primevue";
 import { Button } from "primevue";
 import { zodResolver } from "@primevue/forms/resolvers/zod";
 import { Form } from "@primevue/forms";
@@ -16,13 +16,11 @@ const registerState = reactive({
   email: "",
   password: "",
 });
-const resolver = zodResolver(
-  registerFormSchema
-);
+const resolver = zodResolver(registerFormSchema);
 
-function registerUser({ valid}: { valid: boolean }) {
+function registerUser({ valid }: { valid: boolean }) {
   if (valid) {
-    register(registerState)
+    register(registerState);
   }
 }
 </script>
@@ -42,12 +40,16 @@ function registerUser({ valid}: { valid: boolean }) {
           class="space-y-4"
         >
           <div>
-            <InputText
-              v-model="registerState.name"
-              class="w-full"
-              placeholder="Name"
-              name="name"
-            />
+            <IconField>
+
+              <InputText
+                v-model="registerState.name"
+                class="w-full"
+                placeholder="Name"
+                name="name"
+              />
+              <InputIcon slot="icon" class="pi pi-user" />
+            </IconField>
             <Message
               v-if="$form.name?.invalid"
               severity="error"
@@ -58,12 +60,15 @@ function registerUser({ valid}: { valid: boolean }) {
           </div>
           <div class="flex justify-center w-full gap-2">
             <div class="w-full">
-              <InputText
-                v-model="registerState.email"
-                class="w-full"
-                placeholder="Email"
-                name="email"
-              />
+              <IconField>
+                <InputText
+                  v-model="registerState.email"
+                  class="w-full"
+                  placeholder="Email"
+                  name="email"
+                />
+                <InputIcon slot="icon" class="pi pi-envelope" />
+              </IconField>
               <Message
                 v-if="$form.email?.invalid"
                 severity="error"

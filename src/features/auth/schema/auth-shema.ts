@@ -1,8 +1,8 @@
 import z from "zod";
 
 export const loginFormSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
+  email: z.string().email({ error: "Email harus valid" }),
+  password: z.string().min(6, "Password minimal 6 karakter"),
 });
 
 export const registerFormSchema = z.object({
@@ -10,5 +10,5 @@ export const registerFormSchema = z.object({
   name: z
     .string({ error: "Name tidak boleh kosong" })
     .min(3, "Name minimal 3 karakter"),
-  password: z.string(),
+  password: z.string().min(6, "Password minimal 6 karakter"),
 });
