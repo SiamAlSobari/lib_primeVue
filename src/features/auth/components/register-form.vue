@@ -1,41 +1,34 @@
 <script setup lang="ts">
 import Password from "primevue/password";
 import Card from "primevue/card";
-import { Divider, InputText, Message, useToast} from "primevue";
+import { Divider, InputText, Message } from "primevue";
 import { Button } from "primevue";
 import { zodResolver } from "@primevue/forms/resolvers/zod";
-import { z } from "zod";
 import { Form } from "@primevue/forms";
 import { useRegister } from "../hooks/use-register";
+import { reactive } from "vue";
+import { registerFormSchema } from "../schema/auth-shema";
 
+const { register } = useRegister();
 
-const {register} = useRegister();
-const toast = useToast();
+const registerState = reactive({
+  name: "",
+  email: "",
+  password: "",
+});
 const resolver = zodResolver(
-  z.object({
-    email: z.email({ error: "Email harus valid" }),
-    name: z
-      .string({ error: "Name tidak boleh kosong" })
-      .min(3, "Name minimal 3 karakter"),
-    password: z.string(),
-  })
+  registerFormSchema
 );
 
-function registerUser({ valid, values }: { valid: boolean; values: any }) {
+function registerUser({ valid}: { valid: boolean }) {
   if (valid) {
-    //register(values)
-    toast.add({
-      severity: "success",
-      summary: "Success",
-      detail: "Register success",
-      life: 3000,
-    });
+    register(registerState)
   }
 }
 </script>
 
 <template>
-  <Card class="w-2/5">
+  <Card class="lg:w-2/5 w-full md:w-3/5">
     <template #title>
       <p class="text-center">Register</p>
       <hr class="my-3" />
@@ -49,18 +42,28 @@ function registerUser({ valid, values }: { valid: boolean; values: any }) {
           class="space-y-4"
         >
           <div>
-            <InputText class="w-full" placeholder="Name" name="name" />
+            <InputText
+              v-model="registerState.name"
+              class="w-full"
+              placeholder="Name"
+              name="name"
+            />
             <Message
               v-if="$form.name?.invalid"
               severity="error"
               size="small"
               variant="simple"
-              >{{ $form.name.error?.message }}</Message
-            >
+              >{{ $form.name.error?.message }}
+            </Message>
           </div>
           <div class="flex justify-center w-full gap-2">
             <div class="w-full">
-              <InputText class="w-full" placeholder="Email" name="email" />
+              <InputText
+                v-model="registerState.email"
+                class="w-full"
+                placeholder="Email"
+                name="email"
+              />
               <Message
                 v-if="$form.email?.invalid"
                 severity="error"
@@ -75,6 +78,7 @@ function registerUser({ valid, values }: { valid: boolean; values: any }) {
                 class="w-full"
                 placeholder="Password"
                 toggle-mask
+                v-model="registerState.password"
                 name="password"
               >
                 <template #footer>
