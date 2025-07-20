@@ -19,7 +19,7 @@ const toggleSidebar = () => {
         <div class="flex gap-2 ml-7 items-center">
             <Avatar image="/logo.jpg" size="large" />
             <h2 class="font-bold text-yellow-500 text-3xl">Tube App</h2>
-            <div class="md:hidden">
+            <div class="">
                 <Button @click="toggleSidebar" severity="secondary">
                     <Menu />
                 </Button>

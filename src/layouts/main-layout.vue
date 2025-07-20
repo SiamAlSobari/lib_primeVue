@@ -4,7 +4,7 @@ import MainNav from "../common/ui/layout-parts/main-nav.vue";
 import MainSidebar from "../common/ui/layout-parts/main-sidebar.vue";
 import { ref } from "vue";
 
-const isSidebarOpen = ref(false)
+const isSidebarOpen = ref(true)
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const isSidebarOpen = ref(false)
                 />
             </aside>
 
-            <main class="flex-1 overflow-y-auto p-4">
+            <main :class="isSidebarOpen ? '': 'px-14'" class="flex-1 overflow-y-auto p-4">
                 <RouterView />
             </main>
         </div>
