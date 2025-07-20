@@ -2,26 +2,27 @@
 import { RouterView } from "vue-router";
 import MainNav from "../common/ui/layout-parts/main-nav.vue";
 import MainSidebar from "../common/ui/layout-parts/main-sidebar.vue";
+import { ref } from "vue";
+
+const isSidebarOpen = ref(false)
 </script>
 
 <template>
-  <div class="h-screen flex flex-col">
-    <!-- Navbar tetap di atas -->
-    <header class="sticky top-0 z-50 ">
-      <MainNav />
-    </header>
+    <div class="h-screen flex flex-col">
+        <header class="sticky top-0 z-50">
+            <MainNav @toggle-sidebar="isSidebarOpen = !isSidebarOpen" />
+        </header>
 
-    <!-- Isi: Sidebar & Konten utama -->
-    <div class="flex flex-1 overflow-hidden">
-      <!-- Sidebar tetap -->
-      <aside class=" h-full">
-        <MainSidebar />
-      </aside>
+        <div class="flex flex-1 z-50 overflow-hidden">
+            <aside class="h-full">
+                <MainSidebar
+                    :isSidebarOpen="isSidebarOpen"
+                />
+            </aside>
 
-      <!-- Konten utama scroll -->
-      <main class="flex-1 overflow-y-auto p-4 ">
-        <RouterView />
-      </main>
+            <main class="flex-1 overflow-y-auto p-4">
+                <RouterView />
+            </main>
+        </div>
     </div>
-  </div>
 </template>
