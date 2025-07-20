@@ -4,10 +4,15 @@ import CarouselVideoPost from "../features/post/components/carousel-video-post.v
 </script>
 
 <template>
-    <div class="flex flex-col gap-2">
+    <div
+        v-animateonscroll="{
+            enterClass: 'animate-enter fade-in-10 slide-in-from-t-20 animate-duration-1000',
+        }"
+        class="flex flex-col gap-2"
+    >
         <CarouselVideoPost />
         <div class="flex flex-col gap-2">
-            <h1 class="text-2xl font-bold  rounded-lg bg-yellow-600 p-2">Short Post</h1>
+            <h1 class="text-2xl font-bold rounded-lg bg-yellow-600 p-2">Short Post</h1>
             <CarouselShortPost />
         </div>
     </div>

@@ -8,12 +8,14 @@ import Aura from '@primeuix/themes/aura';
 import 'primeicons/primeicons.css'
 import { createPinia } from 'pinia'
 import ToastService from 'primevue/toastservice';
+import { ConfirmationService } from 'primevue'
 //createApp(App).mount('#app')
 
 
 
 const app  = createApp(App)
 app.use(ToastService)
+app.use(ConfirmationService);
 app.use(createPinia())
 app.use(PrimeVue,{
    theme:{
