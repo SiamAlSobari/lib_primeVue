@@ -68,7 +68,7 @@ function registerUser({ valid }: { valid: boolean }) {
                             >{{ $form.password.error?.message }}
                         </Message>
                     </div>
-                    <Button type="submit" label="Register" class="w-full" />
+                    <Button type="submit" label="Login" class="w-full" />
                 </Form>
             </div>
         </template>

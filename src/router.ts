@@ -5,12 +5,16 @@ import MainLayout from "./layouts/main-layout.vue";
 import RegisterPage from "./pages/auth/registerPage.vue";
 import AuthLayout from "./layouts/auth-layout.vue";
 import { useSessionStore } from "./stores/use-session";
+import ProfilePage from "./pages/user/profilePage.vue";
 
 const routes = [
     {
         path: "/",
         component: MainLayout,
-        children: [{ path: "/", component: RootPage }],
+        children: [
+            { path: "/", component: RootPage },
+            {path:"/profile",component:ProfilePage}
+        ],
     },
     {
         path: "/auth",
