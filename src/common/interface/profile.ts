@@ -6,7 +6,7 @@ export interface Profile {
   caption?: string;
   avatar_url: string;
   user_id: string;
-  created_at: Date;
-  updated_at: Date;
+  created_at: string;
+  updated_at: string;
   user?: User;
 }
