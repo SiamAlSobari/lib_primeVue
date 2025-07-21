@@ -27,6 +27,18 @@ class AuthService {
             data,
         });
     }
+
+    public async getSession(): Promise<{
+        name: string;
+        email: string;
+        id: string;
+        role: string;
+    } | null> {
+        return apiClient({
+            method: "GET",
+            url: "/auth/session",
+        });
+    }
 }
 
 export const authService = new AuthService();
