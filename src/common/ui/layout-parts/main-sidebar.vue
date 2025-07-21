@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Home } from "lucide-vue-next";
+import { Home, PanelTop, User } from "lucide-vue-next";
 
 defineProps<{
     isSidebarOpen: boolean;
@@ -11,14 +11,23 @@ const items = [
         icon: Home,
         to: "/",
     },
+    {
+        name: "Profile",
+        icon: User,
+        to: "/profile",
+    },
+    {
+        name: "Dashboard",
+        icon: PanelTop,
+        to: "/dashboard",
+    }
 ];
 </script>
 
 <template>
-    <Transition name="slide-fade">
         <aside
             v-show="isSidebarOpen"
-            class="w-64 shadow min-h-screen p-4 transition-transform duration-300 fixed md:relative top-0 left-0 md:bg-transparent bg-white/75 z-50 md:translate-x-0"
+            class="w-64  min-h-screen p-4 fixed   shadow-gray-400/10 shadow-md md:relative top-0 left-0 md:bg-transparent bg-white/75 z-50 md:translate-x-0"
             :class="isSidebarOpen ? '-translate-x-4' : '-translate-x-full'"
         >
             <nav class="mt-6">
@@ -36,25 +45,4 @@ const items = [
                 </ul>
             </nav>
         </aside>
-    </Transition>
 </template>
-
-<style scoped>
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
-.slide-fade-enter-active {
-    transition: all 0.4s ease-out;
-}
-
-.slide-fade-leave-active {
-    transition: all 0.4s ease-in
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-    transform: translateX(20px);
-    opacity: 0;
-}
-</style>

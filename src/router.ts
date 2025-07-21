@@ -27,7 +27,7 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _from, next) => {
     const useSession = useSessionStore();
     await useSession.getSession();
     if (to.path == "/" && !useSession.isLogin) {
