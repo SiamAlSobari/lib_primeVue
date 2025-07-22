@@ -7,9 +7,9 @@ import CardVideoPost from "../../post/components/card-video-post.vue";
     <div>
         <Tabs class="w-full bg-transparent costum-tabs" value="0">
             <TabList>
-                <Tab value="0">Header I</Tab>
-                <Tab value="1">Header II</Tab>
-                <Tab value="2">Header III</Tab>
+                <Tab value="0">Semua</Tab>
+                <Tab value="1">Video</Tab>
+                <Tab value="2">Shorts</Tab>
             </TabList>
             <TabPanels>
                 <TabPanel value="0">
