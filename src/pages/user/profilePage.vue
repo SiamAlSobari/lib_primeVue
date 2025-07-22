@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ProfileNotFound from "../../common/ui/not-found/profile-not-found.vue";
-import MyProfile from "../../features/profile/components/my-profile.vue";
 import TabsPostProfile from "../../features/profile/components/tabs-post-profile.vue";
+import UpdateProfile from "../../features/profile/components/update-profile.vue";
 import { useProfile } from "../../features/profile/composable/use-profile";
 
 const { data: profile } = useProfile.getProfile();
@@ -12,9 +12,7 @@ const { data: profile } = useProfile.getProfile();
         <div v-if="!profile?.data">
             <ProfileNotFound />
         </div>
-        <div class="px-16 py-10" v-else>
-            <MyProfile :profile="profile?.data" />
-        </div>
+        <UpdateProfile v-else :profile="profile?.data" />
         <div>
             <TabsPostProfile />
         </div>
