@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "primevue";
-import CardVideoPost from "../../post/components/card-video-post.vue";
+import CardVideoPostProfile from "./card-video-post-profile.vue";
+import CardShortPostProfile from "./card-short-post-profile.vue";
 </script>
 
 <template>
@@ -23,17 +24,10 @@ import CardVideoPost from "../../post/components/card-video-post.vue";
                     </p>
                 </TabPanel>
                 <TabPanel value="1">
-                    <CardVideoPost />
+                    <CardVideoPostProfile />
                 </TabPanel>
                 <TabPanel value="2">
-                    <p class="m-0">
-                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                        praesentium voluptatum deleniti atque corrupti quos dolores et quas
-                        molestias excepturi sint occaecati cupiditate non provident, similique sunt
-                        in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
-                        fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero
-                        tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-                    </p>
+                    <CardShortPostProfile />
                 </TabPanel>
             </TabPanels>
         </Tabs>
