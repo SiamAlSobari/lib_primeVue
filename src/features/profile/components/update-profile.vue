@@ -66,7 +66,7 @@ const handleSaveProfile = async () => {
         <Button
             v-if="!previewImage"
             @click="handleClickInput"
-            class="absolute top-4 right-9 z-20"
+            class="absolute  top-4 right-9 z-20"
             severity="success"
             label="Edit"
             icon="pi pi-pencil"
