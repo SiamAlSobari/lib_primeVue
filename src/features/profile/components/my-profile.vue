@@ -5,6 +5,7 @@ import { date } from "../../../common/utils/date";
 
 defineProps<{
     profile: Profile;
+    imagePreview?: string | null;
 }>();
 
 </script>
@@ -12,9 +13,9 @@ defineProps<{
 <template>
     <div class="flex sm:flex-row flex-col items-center">
         <Image
-            :src="profile.avatar_url"
+            :src="imagePreview || profile.avatar_url"
             preview
-            class="rounded-full w-44 h-44 overflow-hidden"
+            class="rounded-full object-cover w-44 h-44 overflow-hidden"
         />
         <div class="ml-4">
             <h1 class="text-2xl font-bold">{{ profile.name }}</h1>
@@ -23,3 +24,7 @@ defineProps<{
         </div>
     </div>
 </template>
+
+<style scoped>
+
+</style>
