@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "primevue";
+import TableVideoDashboardPost from "./table-video-dashboard-post.vue";
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "primevue";
             </TabList>
             <TabPanels>
                 <TabPanel value="1">
-                    <p>ass</p>
+                    <TableVideoDashboardPost />
                 </TabPanel>
                 <TabPanel value="2">
                     <p>asas</p>
@@ -26,10 +27,8 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "primevue";
     --p-tabs-tablist-background: transparent;
     --p-tabs-tabpanel-background: transparent;
 
-    /* Ubah warna teks saat tab aktif */
-    --p-tabs-tab-active-color: #f97316; /* oranye Tailwind: orange-500 */
+    --p-tabs-tab-active-color: #f97316;
 
-    /* Ubah warna garis bawah/tab indicator aktif */
     --p-tabs-active-bar-background: #f97316;
 }
 </style>
