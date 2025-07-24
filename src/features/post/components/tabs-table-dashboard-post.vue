@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "primevue";
 import TableVideoDashboardPost from "./table-video-dashboard-post.vue";
+import TableShortDashboardPost from "./table-short-dashboard-post.vue";
 </script>
 
 <template>
@@ -15,7 +16,7 @@ import TableVideoDashboardPost from "./table-video-dashboard-post.vue";
                     <TableVideoDashboardPost />
                 </TabPanel>
                 <TabPanel value="2">
-                    <p>asas</p>
+                    <TableShortDashboardPost />
                 </TabPanel>
             </TabPanels>
         </Tabs>

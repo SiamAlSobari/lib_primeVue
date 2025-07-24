@@ -66,7 +66,7 @@ const deleteConfirm = (id: number) => {
     >
         <template #header>
             <div class="flex flex-wrap items-center justify-between gap-2">
-                <span class="text-xl font-bold">Video</span>
+                <span class="text-xl font-bold">Video Post</span>
                 <Button
                     class="!bg-orange-500 !border-orange-500"
                     icon="pi pi-refresh"

@@ -7,7 +7,6 @@ defineProps<{
     profile: Profile;
     imagePreview?: string | null;
 }>();
-
 </script>
 
 <template>
@@ -15,7 +14,7 @@ defineProps<{
         <Image
             :src="imagePreview || profile.avatar_url"
             preview
-            class="rounded-full overflow-hidden !object-cover w-44 h-44"
+            class="rounded-full overflow-hidden w-44 h-44"
         />
         <div class="ml-4">
             <h1 class="text-2xl font-bold">{{ profile.name }}</h1>
@@ -24,3 +23,12 @@ defineProps<{
         </div>
     </div>
 </template>
+
+<style scoped>
+:deep(.p-image img) {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 0.375rem; /* tailwind rounded-md */
+}
+</style>
