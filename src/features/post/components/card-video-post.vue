@@ -76,7 +76,7 @@ const dummyPost = [
             <div class="card flex-col  flex justify-content-center mx-2">
                 <img :src="post.imageUrl" :alt="post.title" class="w-full rounded h-44 object-" />
                 <div class="p-2">
-                    <p class="font-bold text-xl line-clamp-2">
+                    <p class="font-bold text-md lg:text-xl line-clamp-2">
                         {{ post.description }}
                     </p>
                 </div>

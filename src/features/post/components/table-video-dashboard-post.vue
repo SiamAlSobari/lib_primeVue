@@ -143,7 +143,7 @@ const deleteConfirm = (id: number) => {
                     <Button
                         @click="deleteConfirm(slotProps.data.id)"
                         icon="pi pi-trash"
-                        class="!bg-red-500 !border-red-500 ml-2"
+                        class="!bg-red-500 !border-red-500"
                         raised
                         label="Delete"
                     />

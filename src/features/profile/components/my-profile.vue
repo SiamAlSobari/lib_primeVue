@@ -12,14 +12,14 @@ defineProps<{
 <template>
     <div class="flex sm:flex-row flex-col items-center">
         <Image
-            :src="imagePreview || profile.avatar_url"
+            :src="imagePreview || profile.avatarUrl"
             preview
             class="rounded-full overflow-hidden w-44 h-44"
         />
         <div class="ml-4">
             <h1 class="text-2xl font-bold">{{ profile.name }}</h1>
             <p class="text-gray-500">{{ profile.caption || "No caption" }}</p>
-            <p class="text-gray-500">Akun ini dibuat pada {{ date(profile.created_at) }}</p>
+            <p class="text-gray-500">Akun ini dibuat pada {{ date(profile.createdAt) }}</p>
         </div>
     </div>
 </template>

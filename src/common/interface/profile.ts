@@ -4,9 +4,9 @@ export interface Profile {
   id: string;
   name: string;
   caption?: string;
-  avatar_url: string;
+  avatarUrl: string;
   user_id: string;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
   user?: User;
 }

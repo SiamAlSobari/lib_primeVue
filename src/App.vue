@@ -12,6 +12,7 @@ onMounted(() => {
 </script>
 
 <template>
+    <ConfirmDialog />
     <KeepAlive>
         <RouterView v-slot="{ Component }">
             <component :is="Component" />

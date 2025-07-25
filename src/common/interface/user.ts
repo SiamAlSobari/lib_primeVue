@@ -5,7 +5,7 @@ export interface User {
   email: string;
   password: string;
   role: "user" | "admin";
-  created_at: Date;
-  updated_at: Date;
+  createdAt: string;
+  updatedAt: string;
   profile?: Profile;
 }

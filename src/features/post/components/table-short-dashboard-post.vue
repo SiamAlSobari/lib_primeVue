@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { Button, Column, ConfirmDialog, DataTable, Image, useConfirm } from "primevue";
+import { Button, Column,  DataTable, Image, useConfirm } from "primevue";
 import { date } from "../../../common/utils/date";
+import { ref } from "vue";
 
 const confirm = useConfirm();
-const dummyData = [
+const dummyData = ref( [
     {
         id: 1,
         title: "Video Pertama",
@@ -24,7 +25,7 @@ const dummyData = [
         likes: 50,
         createdAt: new Date(),
     },
-];
+]);
 
 const deleteConfirm = (id: number) => {
     confirm.require({
@@ -41,6 +42,7 @@ const deleteConfirm = (id: number) => {
             outlined: true,
         },
         accept: () => {
+            dummyData.value = dummyData.value.filter((item) => item.id !== id);
             // Handle the delete action here
             console.log(`Video with id ${id} deleted`);
         },
@@ -53,7 +55,6 @@ const deleteConfirm = (id: number) => {
 </script>
 
 <template>
-    <ConfirmDialog></ConfirmDialog>
     <DataTable
         :value="dummyData"
         :paginator="true"
@@ -143,7 +144,7 @@ const deleteConfirm = (id: number) => {
                     <Button
                         @click="deleteConfirm(slotProps.data.id)"
                         icon="pi pi-trash"
-                        class="!bg-red-500 !border-red-500 ml-2"
+                        class="!bg-red-500 !border-red-500"
                         raised
                         label="Delete"
                     />
