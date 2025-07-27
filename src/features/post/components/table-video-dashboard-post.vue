@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Button, Column, ConfirmDialog, DataTable, Image, useConfirm } from "primevue";
 import { date } from "../../../common/utils/date";
+import { ref } from "vue";
 
 const confirm = useConfirm();
 const dummyData = [
@@ -25,6 +26,8 @@ const dummyData = [
         createdAt: new Date(),
     },
 ];
+
+const isOpen = ref<boolean>(false);
 
 const deleteConfirm = (id: number) => {
     confirm.require({
@@ -53,7 +56,6 @@ const deleteConfirm = (id: number) => {
 </script>
 
 <template>
-    <ConfirmDialog></ConfirmDialog>
     <DataTable
         :value="dummyData"
         :paginator="true"
@@ -68,10 +70,11 @@ const deleteConfirm = (id: number) => {
             <div class="flex flex-wrap items-center justify-between gap-2">
                 <span class="text-xl font-bold">Video Post</span>
                 <Button
-                    class="!bg-orange-500 !border-orange-500"
-                    icon="pi pi-refresh"
+                    :icon="isOpen ? 'pi pi-minus' : 'pi pi-plus'"
                     rounded
+                    @click="isOpen = !isOpen"
                     raised
+                    :severity="isOpen ? 'danger' : 'success'"
                 />
             </div>
         </template>

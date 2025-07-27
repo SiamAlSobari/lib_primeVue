@@ -22,7 +22,6 @@ const updateProfile = (onSuccess: () => void) => {
     });
     return { updateProfile, isUpdateProfileError };
 };
-
 export const useProfile = {
     getProfile,
     updateProfile,

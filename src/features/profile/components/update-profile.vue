@@ -17,7 +17,7 @@ const inputFile = ref<HTMLInputElement | null>(null);
 
 const { updateProfile, isUpdateProfileError } = useProfile.updateProfile(() => {
     previewImage.value = null; // Reset preview image after saving
-    profileService.profileImage = null; // Clear the profile image in the service
+    profileService.avatar = null; // Clear the profile image in the service
     toast.add({
         severity: "success",
         summary: "Profile Updated",
@@ -31,7 +31,7 @@ const handleChangeProfile = (e: Event) => {
     const file = target.files?.[0];
     if (file) {
         previewImage.value = URL.createObjectURL(file);
-        profileService.profileImage = file; // Set the selected image to the service
+        profileService.avatar = file; // Set the selected image to the service
     }
 };
 
@@ -66,7 +66,7 @@ const handleSaveProfile = async () => {
         <Button
             v-if="!previewImage"
             @click="handleClickInput"
-            class="absolute  top-4 right-9 z-20"
+            class="absolute top-4 right-9 z-20"
             severity="success"
             label="Edit"
             icon="pi pi-pencil"

@@ -2,7 +2,7 @@ import type { Profile } from "../../../common/interface/profile";
 import { apiClient } from "../../../common/utils/api-client";
 
 class ProfileService {
-    profileImage: File | null = null;
+    avatar: File | null = null;
 
     public async getProfile(): Promise<{ data: Profile }> {
         return apiClient<{ data: Profile }>({
@@ -13,8 +13,8 @@ class ProfileService {
 
     public async updateProfile() {
         const formData = new FormData();
-        if (this.profileImage) {
-            formData.append("image", this.profileImage);
+        if (this.avatar) {
+            formData.append("avatar", this.avatar);
         }
         return apiClient<void>({
             method: "PATCH",
